@@ -1,5 +1,3 @@
-# uxly
-
 ## How to Run the Full Stack Chatbot
 
 To start the application, use the following command:
