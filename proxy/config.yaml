@@ -1,0 +1,23 @@
+model_list:
+  - model_name: uxly-model
+    litellm_params:
+      model: openai/gpt-4o-mini
+
+  - model_name: uxly-embeddings
+    litellm_params:
+      model: openai/text-embedding-ada-002
+
+guardrails:
+  - guardrail_name: "aporia-pre-guard"
+    litellm_params:
+      guardrail: aporia
+      mode: "during_call"
+      api_key: os.environ/APORIO_API_KEY_1
+      api_base: os.environ/APORIO_API_BASE_1
+
+  - guardrail_name: "aporia-post-guard"
+    litellm_params:
+      guardrail: aporia
+      mode: "post_call"
+      api_key: os.environ/APORIO_API_KEY_2
+      api_base: os.environ/APORIO_API_BASE_2

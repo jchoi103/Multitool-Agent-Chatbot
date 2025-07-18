@@ -1,0 +1,58 @@
+/* Common styles for all pages */
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 70px;
+}
+
+.pageContent {
+  flex-grow: 1;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.footer {
+  background-color: var(--primary-color, #2c3e50);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+.button {
+  background-color: var(--secondary-color, #3498db);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius, 5px);
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
+
+.buttonAccent {
+  background-color: var(--accent-color, #e74c3c);
+}
+.buttonAccent:hover {
+  background-color: var(--accent-color-dark, #c0392b);
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding-top: 100px;
+  }
+  .pageContent {
+    padding: 0.5rem;
+  }
+}

@@ -1,0 +1,151 @@
+.detailPageContent {
+  padding: 2rem;
+}
+
+.productDetailArticle {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: var(--border-radius, 8px);
+  box-shadow: var(--box-shadow);
+}
+
+.productImages {
+  text-align: center;
+  width: 80%;
+}
+.productImages img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  border: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.mainImage {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  border: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.productInfo h1 {
+  font-size: 2rem;
+  color: var(--primary-color, #333);
+  margin-bottom: 0.5rem;
+}
+
+.category {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.featuresList {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 1.5rem;
+}
+
+.featuresList li {
+  margin-bottom: 0.5rem;
+}
+
+.variantsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.variantCard {
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background-color: #f9f9f9;
+}
+
+.variantCard h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--primary-color);
+}
+
+.variantCard p {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.variantCard button {
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.notFoundContainer {
+  text-align: center;
+  padding: 2rem;
+}
+
+.notFoundContainer h1 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.exampleProducts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.exampleProductCard {
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  width: 250px;
+  text-align: left;
+  background-color: #fff;
+}
+
+.exampleProductCard img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.exampleProductCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.exampleProductCard p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 768px) {
+  .productDetailArticle {
+    grid-template-columns: 2fr 3fr;
+  }
+  .productImages {
+    text-align: left;
+  }
+}

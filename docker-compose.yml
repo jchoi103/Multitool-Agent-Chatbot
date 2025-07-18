@@ -1,0 +1,74 @@
+services:
+  backend:
+    build:
+      context: ./chatbot/backend
+      dockerfile: Dockerfile
+    container_name: chatbot-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_CONNINFO=postgresql://postgres:postgres@postgres:5432/uxly
+      - PROXY_URL=http://proxy:4000
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: uvicorn server:app --host 0.0.0.0 --port 8000
+    volumes:
+      - ./chatbot/backend:/app
+    networks:
+      - chatbot-network
+  frontend:
+    build:
+      context: ./chatbot/frontend
+      dockerfile: Dockerfile
+    container_name: chatbot-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    command: npm run dev -- --host
+    networks:
+      - chatbot-network
+  proxy:
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    container_name: proxy
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./proxy/config.yaml:/app/config.yaml
+    env_file:
+      - ./proxy/.env
+    networks:
+      - chatbot-network
+  postgres:
+    build:
+      context: ./chatbot/database
+      dockerfile: Dockerfile
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=uxly
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - chatbot-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  postgres_data:
+
+networks:
+  chatbot-network:
+    driver: bridge
+

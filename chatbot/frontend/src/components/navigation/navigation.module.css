@@ -1,0 +1,223 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background-color: var(--primary-color, #2c3e50);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.navLeft,
+.navCenter,
+.navRight {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navCenter {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 0.75rem;
+  filter: invert(1) brightness(2);
+}
+
+.storeName {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--secondary-color, #3498db);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--secondary-color, #3498db);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.accountMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.accountMenu > button.navLink {
+  display: flex;               /* aligns email + icon horizontally */
+  align-items: center;
+  gap: 6px;                   /* space between email text and icon */
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0.25rem 0;          /* match other navLinks vertical padding */
+  font-family: inherit;
+  color: inherit;
+}
+
+.accountMenu > button.navLink:hover,
+.accountMenu > button.navLink:focus {
+  color: var(--secondary-color, #3498db);
+  outline: none;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius, 5px);
+  box-shadow: var(--box-shadow, 0 2px 8px rgba(0, 0, 0, 0.15));
+  z-index: 110; /* above navbar */
+  min-width: 180px;
+  padding: 0.5rem 0;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-color, #333);
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: #f5f5f5;
+  color: var(--secondary-color, #3498db);
+}
+
+.hamburgerButton {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 105;
+  margin-left: auto;
+}
+
+.hamburgerIconBar {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s linear;
+}
+
+.desktopNavItems {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.mobileNavMenu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-color, #2c3e50);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+  padding: 1rem 0;
+}
+
+.mobileNavLink {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  display: block;
+  text-align: left;
+  border: none;
+  background: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.mobileNavLink:hover {
+  background-color: var(--secondary-color, #3498db);
+  color: white;
+}
+
+.hideOnMobile {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .navBar {
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .desktopNavItems {
+    display: none;
+  }
+
+  .hamburgerButton {
+    display: flex;
+  }
+
+  .mobileNavMenu {
+    display: flex;
+  }
+
+  .storeName {
+    font-size: 1.2rem;
+  }
+
+  .logo {
+    height: 30px;
+  }
+}

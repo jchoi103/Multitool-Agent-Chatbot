@@ -1,0 +1,84 @@
+.shoppingCartContent {
+  padding: 2rem;
+  background-color: #fff;
+  min-height: 80vh;
+}
+
+.notLoggedIn {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.cartLayout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.leftColumn {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rightColumn {
+  flex: 1;
+  position: sticky;
+  top: 6rem;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.summaryCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.summaryCard h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.summaryLine,
+.summaryLineTotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #333;
+}
+
+.summaryLineTotal {
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ccc;
+}
+
+.checkoutButton {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.checkoutButton:hover {
+  background-color: #333;
+}
+
+.paypalButton:hover {
+  background-color: #0070ba;
+  color: white;
+}
